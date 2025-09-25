@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Моё Портфолио</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">МоеПортфолио</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">Обо мне</a></li>
+                <li><a href="projects.html">Проекты</a></li>
+                <li><a href="contact.html" class="active">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-page">
+        <div class="container">
+            <h1>Свяжитесь со мной</h1>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>📞 Контактная информация</h2>
+                    <div class="contact-item">
+                        <strong>Email:</strong>
+                        <span>your.email@example.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Телефон:</strong>
+                        <span>+7 (999) 123-45-67</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong>GitHub:</strong>
+                        <span>github.com/tohlk</span>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <h2>📧 Напишите мне</h2>
+                    
+                    <div class="form-group">
+                        <label for="name">Ваше имя:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Ваш email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Сообщение:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-button">Отправить сообщение</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
