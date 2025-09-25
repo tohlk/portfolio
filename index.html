@@ -567,5 +567,93 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fun
     }
 });
 </script>
+<style>
+/* Исправления для темной темы */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --card-bg: #f8f9fa;
+  --header-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
+  --card-bg: #2d2d2d;
+  --header-bg: #2d2d2d;
+}
+
+/* Основные стили */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+/* Исправляем иконки навыков */
+[data-theme="dark"] .skills-container img {
+  filter: invert(1) brightness(2);
+}
+
+/* Исправляем карточки проектов */
+[data-theme="dark"] .project-card {
+  background: var(--card-bg) !important;
+  border: 1px solid #444 !important;
+}
+
+/* Исправляем хедер */
+[data-theme="dark"] header {
+  background: var(--header-bg) !important;
+}
+
+/* Исправляем футер */
+[data-theme="dark"] footer {
+  background: var(--header-bg) !important;
+}
+
+/* Кнопка переключения темы */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--text-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+</style>
+
+<button id="themeToggle" class="theme-toggle">🌙</button>
+
+<script>
+// Простой и надежный скрипт
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    
+    // Применяем сохраненную тему
+    document.body.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    
+    // Обработчик клика
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = document.body.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    });
+});
+</script>
 </body>
 </html>
