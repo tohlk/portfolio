@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <meta name="theme-color" content="#ffffff" id="themeColor">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная - Моё Портфолио</title>
+    <title>Главная - MyStory</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -18,6 +19,7 @@
             overflow: hidden;
             padding: 100px 2rem 2rem;
         }
+        
 
         .hero::before {
             content: '';
@@ -316,8 +318,10 @@
 <body>
     <header>
         <nav>
+            <!-- В секции header, после nav -->
+            <button id="themeToggle" class="theme-toggle" title="Переключить тему">🌙</button>
             <div class="logo">
-                <a href="index.html">МоеПортфолио</a>
+                <a href="index.html">My Story</a>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Главная</a></li>
@@ -523,5 +527,45 @@
             setTimeout(typeWriter, 2000);
         });
     </script>
+    <script>
+// Функция для применения темы
+function applyTheme(theme) {
+    document.body.dataset.theme = theme;
+    localStorage.setItem('theme', theme);
+    
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    
+    // Обновляем мета-тег для мобильных устройств
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+        metaThemeColor.setAttribute('content', theme === 'dark' ? '#1a1a1a' : '#ffffff');
+    }
+}
+
+// Инициализация темы при загрузке
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    const themeToApply = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+    applyTheme(themeToApply);
+    
+    // Обработчик клика по кнопке
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = document.body.dataset.theme || 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+    });
+});
+
+// Следим за изменением системных предпочтений
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    if (!localStorage.getItem('theme')) {
+        applyTheme(e.matches ? 'dark' : 'light');
+    }
+});
+</script>
 </body>
 </html>
