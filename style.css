@@ -4,7 +4,35 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* ===== ПЕРЕМЕННЫЕ ДЛЯ ТЕМ ===== */
+:root {
+  /* Светлая тема (по умолчанию) */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --accent-color: #007bff;
+  --card-bg: #f8f9fa;
+  --border-color: #dee2e6;
+  --header-bg: #ffffff;
+  --footer-bg: #f8f9fa;
+}
 
+[data-theme="dark"] {
+  /* Темная тема */
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
+  --accent-color: #4dabf7;
+  --card-bg: #2d2d2d;
+  --border-color: #495057;
+  --header-bg: #2d2d2d;
+  --footer-bg: #2d2d2d;
+}
+
+/* Применяем переменные к основным элементам */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 :root {
     --primary-color: #667eea;
     --secondary-color: #764ba2;
@@ -33,6 +61,8 @@ header {
     top: 0;
     z-index: 1000;
     transition: all 0.3s ease;
+    background-color: var(--header-bg) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 nav {
@@ -170,6 +200,8 @@ nav {
     color: var(--primary-color);
 }
 
+
+
 /* Animations */
 @keyframes fadeInUp {
     from {
@@ -268,5 +300,52 @@ nav {
     outline: none;
     border-color: var(--primary-color);
 }
+/* Карточки проектов */
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
 
+/* Секции */
+section {
+  background-color: var(--bg-color);
+}
+
+/* Футер */
+footer {
+  background-color: var(--footer-bg) !important;
+}
+
+/* Ссылки и кнопки */
+a, .btn {
+  color: var(--accent-color);
+}
+
+/* Навигация */
+nav ul li a {
+  color: var(--text-color) !important;
+}
+/* Стили для кнопки переключения темы */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background: var(--accent-color);
+}
 /* Добавляем в конец style.css */
