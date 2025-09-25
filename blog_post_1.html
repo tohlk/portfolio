@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как я создал свой первый сайт - Мой Блог</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .article-page {
+            padding: 120px 2rem 50px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .article-content h2 {
+            margin: 2rem 0 1rem;
+            color: var(--text-color);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content code {
+            background: var(--light-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .back-to-blog {
+            display: inline-block;
+            margin-top: 3rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-blog:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">МоеПортфолио</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">Обо мне</a></li>
+                <li><a href="projects.html">Проекты</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="article-page">
+        <article class="article-content">
+            <div class="article-header">
+                <h1>Как я создал свой первый сайт на GitHub Pages</h1>
+                <div class="article-meta">
+                    <span>15 Декабря 2024</span>
+                    <span>Автор: Ваше Имя</span>
+                    <span>Теги: HTML, CSS, GitHub</span>
+                </div>
+            </div>
+
+            <p>Привет! Сегодня я хочу поделиться своим опытом создания первого веб-сайта и его размещения в интернете с помощью GitHub Pages.</p>
+
+            <h2>📁 Подготовка проекта</h2>
+            <p>Все началось с создания простой HTML-страницы. Вот базовая структура:</p>
+
+            <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Мой первый сайт&lt;/title&gt;
+    &lt;style&gt;
+        body { font-family: Arial; max-width: 800px; margin: 0 auto; padding: 20px; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Добро пожаловать на мой сайт!&lt;/h1&gt;
+    &lt;p&gt;Это мой первый сайт на GitHub Pages.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+
+            <h2>🚀 Размещение на GitHub</h2>
+            <p>После создания HTML-страницы я выполнил следующие команды в терминале:</p>
+
+            <div class="code-block">
+# Инициализация Git репозитория
+git init
+
+# Добавление файлов
+git add .
+
+# Создание коммита
+git commit -m "Мой первый сайт"
+
+# Подключение к GitHub
+git remote add origin https://github.com/username/username.github.io
+
+# Публикация
+git push -u origin main
+            </div>
+
+            <h2>🎯 Результат</h2>
+            <p>Через несколько минут мой сайт был доступен по адресу <code>username.github.io</code>. Это было невероятно - видеть свой код работающим в интернете!</p>
+
+            <p>Создание первого сайта показало мне, что веб-разработка - это увлекательный процесс, где результаты видны сразу.</p>
+
+            <a href="blog.html" class="back-to-blog">← Назад к блогу</a>
+        </article>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

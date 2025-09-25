@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог - Моё Портфолио</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Дополнительные стили для блога */
+        .blog-page {
+            padding: 120px 2rem 50px;
+            min-height: 100vh;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .blog-tag {
+            background: var(--light-bg);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .blog-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .blog-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Страница отдельной статьи */
+        .article-page {
+            padding: 120px 2rem 50px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .article-content h2 {
+            margin: 2rem 0 1rem;
+            color: var(--text-color);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content code {
+            background: var(--light-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .back-to-blog {
+            display: inline-block;
+            margin-top: 3rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">МоеПортфолио</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">Обо мне</a></li>
+                <li><a href="projects.html">Проекты</a></li>
+                <li><a href="blog.html" class="active">Блог</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="blog-page">
+        <div class="blog-header">
+            <h1>📝 Мой Блог</h1>
+            <p>Здесь я делюсь своим опытом обучения и разработки</p>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Статья 1 -->
+            <article class="blog-card">
+                <div class="blog-image">🚀</div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">15 Декабря 2024</span>
+                        <span class="blog-tag">HTML/CSS</span>
+                    </div>
+                    <h3>Как я создал свой первый сайт на GitHub Pages</h3>
+                    <p>История о том, как я с нуля научился создавать веб-сайты и размещать их в интернете...</p>
+                    <a href="blog-post-1.html" class="read-more">
+                        Читать далее →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Статья 2 -->
+            <article class="blog-card">
+                <div class="blog-image">💡</div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">10 Декабря 2024</span>
+                        <span class="blog-tag">JavaScript</span>
+                    </div>
+                    <h3>Основы JavaScript для начинающих</h3>
+                    <p>Простым языком о переменных, функциях и DOM-манипуляциях в JavaScript...</p>
+                    <a href="blog-post-2.html" class="read-more">
+                        Читать далее →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Статья 3 -->
+            <article class="blog-card">
+                <div class="blog-image">🎨</div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">5 Декабря 2024</span>
+                        <span class="blog-tag">Дизайн</span>
+                    </div>
+                    <h3>Современный CSS: Flexbox и Grid</h3>
+                    <p>Как использовать современные технологии CSS для создания адаптивных макетов...</p>
+                    <a href="blog-post-3.html" class="read-more">
+                        Читать далее →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Статья 4 -->
+            <article class="blog-card">
+                <div class="blog-image">🔧</div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">1 Декабря 2024</span>
+                        <span class="blog-tag">Инструменты</span>
+                    </div>
+                    <h3>Настройка VSCode для веб-разработки</h3>
+                    <p>Must-have расширения и настройки для эффективной работы в Visual Studio Code...</p>
+                    <a href="blog-post-4.html" class="read-more">
+                        Читать далее →
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
