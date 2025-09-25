@@ -3,69 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мое Портфолио</title>
+    <title>Главная - Моё Портфолио</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Навигация (будет на всех страницах) -->
     <header>
         <nav>
-            <div class="logo">МоеПортфолио</div>
-            <ul>
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#about">Обо мне</a></li>
-                <li><a href="#skills">Навыки</a></li>
-                <li><a href="#contact">Контакты</a></li>
+            <div class="logo">
+                <a href="index.html">МоеПортфолио</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="about.html">Обо мне</a></li>
+                <li><a href="projects.html">Проекты</a></li>
+                <li><a href="contact.html">Контакты</a></li>
             </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
         </nav>
     </header>
 
-    <section id="home" class="hero">
+    <!-- Герой секция -->
+    <section class="hero">
         <div class="hero-content">
             <h1>Привет, я <span class="highlight">Веб-Разработчик</span></h1>
-            <p>Создаю современные и красивые сайты</p>
-            <button class="cta-button">Узнать больше</button>
+            <p>Создаю современные и интерактивные веб-сайты</p>
+            <div class="hero-buttons">
+                <a href="projects.html" class="cta-button">Мои работы</a>
+                <a href="contact.html" class="cta-button secondary">Связаться</a>
+            </div>
         </div>
-    </section>
-
-    <section id="about" class="about">
-        <h2>Обо мне</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Я начинающий веб-разработчик, увлеченный созданием цифровых продуктов. Изучаю HTML, CSS и JavaScript.</p>
-                <p>Люлю превращать идеи в реальные проекты!</p>
+        <div class="hero-image">
+            <div class="code-animation">
+                <pre>&lt;code&gt;Hello World!&lt;/code&gt;</pre>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="skills">
-        <h2>Мои навыки</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>HTML</h3>
-                <p>Создание структуры сайтов</p>
-            </div>
-            <div class="skill-card">
-                <h3>CSS</h3>
-                <p>Стилизация и дизайн</p>
-            </div>
-            <div class="skill-card">
-                <h3>JavaScript</h3>
-                <p>Интерактивность сайтов</p>
-            </div>
+    <!-- Быстрый доступ -->
+    <section class="quick-links">
+        <h2>Быстрый доступ</h2>
+        <div class="links-grid">
+            <a href="about.html" class="quick-card">
+                <h3>👨‍💻 Обо мне</h3>
+                <p>Узнайте больше о моих навыках</p>
+            </a>
+            <a href="projects.html" class="quick-card">
+                <h3>🚀 Проекты</h3>
+                <p>Посмотрите мои работы</p>
+            </a>
+            <a href="contact.html" class="quick-card">
+                <h3>📞 Контакты</h3>
+                <p>Свяжитесь со мной</p>
+            </a>
         </div>
     </section>
-
-    <section id="contact" class="contact">
-        <h2>Контакты</h2>
-        <div class="contact-info">
-            <p>📧 Email: example@email.com</p>
-            <p>📱 Телефон: +7 (999) 123-45-67</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2024 Мое Портфолио. Все права защищены.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
