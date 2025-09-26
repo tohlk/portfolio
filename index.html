@@ -578,94 +578,42 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fun
 
 
 
-/* === ПЕРЕЗАПИСЫВАЕМ ВСЕ СТИЛИ ТЕМЫ === */
-body.dark-mode {
-    background-color: #1a1a1a !important;
-    color: #ffffff !important;
-    transition: all 0.3s ease !important;
-}
 
-body.dark-mode header {
-    background-color: #2d2d2d !important;
-}
+body.dark-mode { background-color: #1a1a1a !important; color: #ffffff !important; }
+body.dark-mode header { background-color: #2d2d2d !important; }
+body.dark-mode footer { background-color: #2d2d2d !important; }
+body.dark-mode .project-card { background-color: #2d2d2d !important; border-color: #444 !important; }
+body.dark-mode .skills-container img { filter: invert(1) brightness(1.5) !important; }
+body.dark-mode nav ul li a { color: #ffffff !important; }
 
-body.dark-mode footer {
-    background-color: #2d2d2d !important;
-}
-
-body.dark-mode .project-card {
-    background-color: #2d2d2d !important;
-    border-color: #444 !important;
-}
-
-body.dark-mode .skills-container img {
-    filter: invert(1) brightness(1.5) !important;
-}
-
-body.dark-mode nav ul li a {
-    color: #ffffff !important;
-}
-
-/* Кнопка темы */
 .theme-toggle {
-    position: fixed !important;
-    top: 20px !important;
-    right: 20px !important;
-    background: #f8f9fa !important;
-    border: 1px solid #dee2e6 !important;
-    border-radius: 50% !important;
-    width: 50px !important;
-    height: 50px !important;
-    font-size: 1.5rem !important;
-    cursor: pointer !important;
-    z-index: 10000 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    position: fixed !important; top: 20px !important; right: 20px !important;
+    background: #f8f9fa !important; border: 1px solid #dee2e6 !important;
+    border-radius: 50% !important; width: 50px !important; height: 50px !important;
+    font-size: 1.5rem !important; cursor: pointer !important; z-index: 10000 !important;
 }
-
-body.dark-mode .theme-toggle {
-    background: #2d2d2d !important;
-    border-color: #666 !important;
-}
+body.dark-mode .theme-toggle { background: #2d2d2d !important; border-color: #666 !important; }
 </style>
 
 <button id="themeToggle" class="theme-toggle">🌙</button>
 
 <script>
-// === УДАЛЯЕМ СТАРЫЙ СКРИПТ И СТАВИМ ЭТОТ === 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Скрипт темы запущен!');
-    
     const themeToggle = document.getElementById('themeToggle');
     const isDark = localStorage.getItem('darkMode') === 'true';
     
-    // Применяем тему при загрузке
     if (isDark) {
         document.body.classList.add('dark-mode');
         themeToggle.textContent = '☀️';
-    } else {
-        document.body.classList.remove('dark-mode');
-        themeToggle.textContent = '🌙';
     }
     
-    // Обработчик клика
     themeToggle.addEventListener('click', function() {
-        console.log('Клик по кнопке темы');
-        
         document.body.classList.toggle('dark-mode');
         const isNowDark = document.body.classList.contains('dark-mode');
-        
         localStorage.setItem('darkMode', isNowDark);
         themeToggle.textContent = isNowDark ? '☀️' : '🌙';
-        
-        console.log('Тема переключена на:', isNowDark ? 'темная' : 'светлая');
     });
 });
-
-// Принудительно удаляем старые обработчики
-if (window.themeToggleHandler) {
-    document.getElementById('themeToggle')?.removeEventListener('click', window.themeToggleHandler);
-}
 </script>
 </body>
 </html>
