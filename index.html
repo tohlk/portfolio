@@ -7,6 +7,7 @@
     <title>Главная - MyStory</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         /* CSS переменные для тем */
         :root {
@@ -532,128 +533,6 @@
         </div>
     </footer>
 
-    <script>
-        // Скрипт для переключения темы
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeToggle = document.getElementById('themeToggle');
-            const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-            
-            // Проверяем сохраненную тему или системные предпочтения
-            const savedTheme = localStorage.getItem('theme');
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            // Устанавливаем начальную тему
-            let currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-            applyTheme(currentTheme);
-            
-            // Функция применения темы
-            function applyTheme(theme) {
-                document.body.setAttribute('data-theme', theme);
-                localStorage.setItem('theme', theme);
-                
-                // Обновляем иконку кнопки
-                themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
-                
-                // Обновляем цвет темы для мобильных устройств
-                if (metaThemeColor) {
-                    metaThemeColor.setAttribute('content', theme === 'dark' ? '#1a1a1a' : '#ffffff');
-                }
-            }
-            
-            // Обработчик клика по кнопке темы
-            themeToggle.addEventListener('click', function() {
-                currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                applyTheme(currentTheme);
-            });
-            
-            // Следим за изменением системных предпочтений
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-                // Меняем тему только если пользователь не выбирал вручную
-                if (!localStorage.getItem('theme')) {
-                    currentTheme = e.matches ? 'dark' : 'light';
-                    applyTheme(currentTheme);
-                }
-            });
-
-            // Анимация счетчиков статистики
-            const statItems = document.querySelectorAll('.stat-item');
-            const statNumbers = document.querySelectorAll('.stat-number');
-            
-            const animateOnScroll = () => {
-                statItems.forEach(item => {
-                    const itemTop = item.getBoundingClientRect().top;
-                    const itemVisible = 150;
-                    
-                    if (itemTop < window.innerHeight - itemVisible) {
-                        item.classList.add('visible');
-                        
-                        // Анимация счетчиков
-                        statNumbers.forEach(stat => {
-                            const target = parseInt(stat.getAttribute('data-target'));
-                            const duration = 2000;
-                            const step = target / (duration / 16);
-                            let current = 0;
-                            
-                            const timer = setInterval(() => {
-                                current += step;
-                                if (current >= target) {
-                                    stat.textContent = target + '+';
-                                    clearInterval(timer);
-                                } else {
-                                    stat.textContent = Math.floor(current);
-                                }
-                            }, 16);
-                        });
-                    }
-                });
-            };
-
-            window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll();
-
-            // Плавная прокрутка для якорей
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-
-            // Анимация печатной машинки для заголовка
-            const texts = ['Rafa', 'frick', 'toh1k'];
-            let count = 0;
-            let index = 0;
-            let currentText = '';
-            let letter = '';
-
-            function typeWriter() {
-                if (count === texts.length) {
-                    count = 0;
-                }
-                currentText = texts[count];
-                letter = currentText.slice(0, ++index);
-                
-                document.querySelector('.highlight').textContent = letter;
-                
-                if (letter.length === currentText.length) {
-                    setTimeout(() => {
-                        index = 0;
-                        count++;
-                        setTimeout(typeWriter, 500);
-                    }, 2000);
-                } else {
-                    setTimeout(typeWriter, 100);
-                }
-            }
-
-            setTimeout(typeWriter, 2000);
-        });
-    </script>
+    <script src="theme.js"></script>
 </body>
 </html>

@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <!-- Подключаем красивый шрифт из Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Подключение темы -->
+    <link rel="stylesheet" href="theme.css">
     <style>
         /* Специфические стили для страницы "Обо мне" */
         .about-page {
@@ -267,6 +269,7 @@
                 <li><a href="blog.html">Блог</a></li>
                 <li><a href="contact.html">Контакты</a></li>
             </ul>
+            <button id="themeToggle" class="theme-toggle" title="Переключить тему">🌙</button>
         </nav>
     </header>
 
@@ -439,5 +442,7 @@
             fadeInOnScroll(); // Проверяем при загрузке
         });
     </script>
+    <!-- Подключение скрипта темы -->
+    <script src="theme.js"></script>
 </body>
 </html>
